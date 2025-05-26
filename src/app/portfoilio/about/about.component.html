@@ -1,0 +1,26 @@
+<div id="about" class="center">
+    <hr class="border border-primary border-3 opacity-75">
+    <h2>About Me</h2>
+    <!-- <img src="assets/irshad.jpg" alt="profile image"> -->
+    <img src="" alt="profile image">
+    <h4>
+        Ali Irshad
+    </h4>
+    <div class="socialList mb-5">
+        <div class="d-flex justify-content-center">
+            @for(social of socialIcons; track social.name) {
+            <div class="socialIcon px-2">
+                <a [href]="social.link" target="_blank">
+                    <i [class]="social.icon" class="fs-4"></i>
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+    <div class=" row justify-content-center">
+        <p class="col-7">
+            A results-driven analytical software engineer that gets things done. Strong in design and integration
+            problem solving skills. Expert in C# with knowledge of vast array technologies in web development.
+        </p>
+    </div>
+</div>

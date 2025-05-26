@@ -1,0 +1,23 @@
+<nav class="h-top sticky-top navbar navbar-expand-lg  py-2 pe-3 ps-1 bg-dark">
+  <div class="d-flex">
+    <button class="navbar-toggler custom-toggler text" type="button" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon ms-0"></span>
+    </button>
+    <strong class="navbar-brand text-white ms-2">Blog</strong>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      @for(link of navLinks; track link.routerLink){
+      <li class="nav-item">
+        @if(link.routerLink){
+        <a class="nav-link" [routerLink]="link.routerLink">{{ link.label }}</a>
+        }@if(link.id){
+        <a class="nav-link" [href]="link.id">{{ link.label }}</a>
+        }
+      </li>
+      }
+    </ul>
+  </div>
+</nav>
+<app-post></app-post>
