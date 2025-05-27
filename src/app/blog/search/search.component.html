@@ -1,1 +1,10 @@
-<p>search works!</p>
+<input type="text" [(ngModel)]="query" placeholder="Search posts..." />
+<button (click)="onSearch()">Search</button>
+
+<ul>
+    @for( post of results; track $index){
+        <li >
+            <a [routerLink]="['/blog', post.slug]">{{ post.title }}</a>
+        </li>
+    }
+</ul>

@@ -1,0 +1,125 @@
+---
+layout: post
+title:  "Angular i18n"
+date:   2017-11-13
+desc: "Angular i18n"
+keywords: "Angular i18n"
+categories: [others]
+tags: [Angular i18n]
+---
+
+Target Audience
+===============
+
+It is just quick startup guide for programmers who already know the
+concept from below link:
+
+https://angular.io/guide/i18n
+
+Prerequisite
+============
+
+Setup Angular project
+
+For JIT compilation
+===================
+
+1.  Add [LOCALE\_ID](https://angular.io/api/core/LOCALE_ID) in
+    app.module.ts
+
+import { [LOCALE\_ID](https://angular.io/api/core/LOCALE_ID)} from
+\'\@angular/core\';
+
+2.  Add provider in app.module.ts
+
+providers: \[ { provide:
+[LOCALE\_ID](https://angular.io/api/core/LOCALE_ID), useValue: \'fr\' }
+\],
+
+3.  Add locales like below in app.module.ts. En-US locale is provided by
+    default.
+
+import {
+[registerLocaleData](https://angular.io/api/common/registerLocaleData) }
+from \'\@angular/common\';
+
+import localeFr from \'\@angular/common/locales/fr\';
+
+[registerLocaleData](https://angular.io/api/common/registerLocaleData)(localeFr);
+
+4.  Run below command to generate xlf file. File would be generated at
+    src/locale folder by default.
+
+ng xi18n --outputPath src/locale
+
+By default, the tool generates a translation file named messages.xlf
+
+You can specify the translation format explicitly with
+the \--i18nFormat flag as illustrated in these example commands:
+
+ng xi18n \--i18nFormat=xlf ng xi18n \--i18nFormat=xlf2 ng xi18n
+\--i18nFormat=xmb
+
+5.  Make copies of message.xlf file like message.fr.xlf and and node
+    corresponding to source nodes manually for testing. You can also use
+    XLIFF file editor.
+
+6.  Add below code in main.ts
+
+//use the require method provided by webpack
+
+declare const require;
+
+//we use the webpack raw-loader to return the content as a string
+
+const translations = require(\`raw-loader!./locale/messages.fr.xlf\`);
+
+platformBrowserDynamic().bootstrapModule(AppModule, {
+
+providers: \[
+
+{ provide: TRANSLATIONS, useValue: translations },
+
+{ provide: TRANSLATIONS\_FORMAT, useValue: \'xlf\' }
+
+\]
+
+}) .catch(err =\> console.log(err));
+
+7.  Run the project. It will run your project in France (fr) language.
+
+For AOT compilation
+===================
+
+1.  follow step 4 for JIT compilation
+
+2.  Run project with below command.
+
+ng serve \--aot \--i18nFile=src/locale/messages.fr.xlf \--i18nFormat=xlf
+\--locale=fr
+
+Change the file and format as per your case
+
+Note: you can keep the lengthy commands in packages json script to
+remember.
+
+Important
+=========
+
+The i18n template translation process has four phases:
+
+1.  Mark static text messages in your component templates for
+    translation.
+
+2.  An Angular i18n tool extracts the marked text into an industry
+    standard translation source file.
+
+3.  A translator edits that file, translating the extracted text into
+    the target language, and returns the file to you.
+
+4.  The Angular compiler imports the completed translation files,
+    replaces the original messages with translated text, and generates a
+    new version of the app in the target language.
+
+You need to build and deploy a separate version of the app for each
+supported language.

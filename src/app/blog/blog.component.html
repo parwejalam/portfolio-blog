@@ -14,10 +14,19 @@
         <a class="nav-link" [routerLink]="link.routerLink">{{ link.label }}</a>
         }@if(link.id){
         <a class="nav-link" [href]="link.id">{{ link.label }}</a>
+        }@if(link.icon){
+        <i [class]="link.icon"></i>
         }
       </li>
       }
     </ul>
   </div>
 </nav>
-<app-post></app-post>
+<!-- 
+@for(post of posts; track post.slug) {
+<div>
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.date }}</p>
+  <a [routerLink]="['/blog', post.slug]">Read more</a>
+</div>
+} -->

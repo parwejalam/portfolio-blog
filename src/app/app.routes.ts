@@ -11,7 +11,8 @@ export const routes: Routes = [
         // ]
      },
     // child route for blog posts
-    // { path: 'blog/:slug', component: PostComponent }, // dynamic route for posts
+    { path: 'blog/:slug', component: PostComponent }, // dynamic route for posts
+    // { path: 'blog/search', component: BlogSearchComponent },
     { path: 'portfolio', component: PortfoilioComponent },
     { path: 'post', component: PostComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' } // wildcard route for 404

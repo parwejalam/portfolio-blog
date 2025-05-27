@@ -20,6 +20,8 @@
     "@angular/router": "^18.2.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.6",
+    "gray-matter": "^4.0.3",
+    "marked": "^15.0.12",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

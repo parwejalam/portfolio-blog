@@ -1,0 +1,99 @@
+---
+layout: post
+title:  "MahApps"
+date:   2017-09-07
+desc: "MahApps"
+keywords: "MahApps"
+categories: [others]
+tags: [MahApps]
+---
+
+
+Pre Requirement
+===============
+
+1.  Wpf project
+
+Getting Started
+===============
+
+Install-Package MahApps.Metro
+
+Superb Action conventions
+=========================
+
+1.  open up MainWindow.xaml or Shell View (View that contains your first
+    window)
+
+2.  add this attribute inside the opening Window tag. (It's how you
+    reference other namespaces in XAML):\
+    xmlns:Controls=\"clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro\"\
+    or\
+    xmlns:Controls=\"http://metro.mahapps.com/winfx/xaml/controls\"
+
+3.  change \<Window \... tag to \<Controls:MetroWindow \... (remember to
+    change the closing tag too!)
+
+4.  Remove window inheritance from code behind file.
+
+Using Built-In Styles
+=====================
+
+All of MahApp.Metro's resources are contained within separate resource
+dictionaries. In order for most of the controls to adopt the
+MahApps.Metro theme, you will need to add the ResourceDictionaries to
+your App.xaml.
+
+### App.xaml
+
+\<Application x:Class=\"WpfApplication.App\"
+
+xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\"
+
+xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"
+
+StartupUri=\"MainWindow.xaml\"\>
+
+\<Application.Resources\>
+
+\<ResourceDictionary\>
+
+\<ResourceDictionary.MergedDictionaries\>
+
+\<!\-- MahApps.Metro resource dictionaries. Make sure that all file
+names are Case Sensitive! \--\>
+
+\<ResourceDictionary
+Source=\"pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml\"
+/\>
+
+\<ResourceDictionary
+Source=\"pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml\"
+/\>
+
+\<ResourceDictionary
+Source=\"pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml\"
+/\>
+
+\<!\-- Accent and AppTheme setting \--\>
+
+\<ResourceDictionary
+Source=\"pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml\"
+/\>
+
+\<ResourceDictionary
+Source=\"pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml\"
+/\>
+
+\</ResourceDictionary.MergedDictionaries\>
+
+\</ResourceDictionary\>
+
+\</Application.Resources\>
+
+\</Application\>
+
+Refereneces
+===========
+
+<http://mahapps.com/guides/quick-start.html>
