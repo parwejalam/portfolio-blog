@@ -8,8 +8,9 @@
   </div>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      @for(link of navLinks; track link.routerLink){
-      <li class="nav-item">
+      @for(link of navLinks; let i = $index;  track $index) {
+      <!-- <li class="nav-item"  [attr.data-aos]="i % 2 === 1 ? 'zoom-out-right' : 'zoom-out-left'"  data-aos-anchor-placement="top-bottom"> -->
+      <li class="nav-item" >
         @if(link.routerLink){
         <a class="nav-link" [routerLink]="link.routerLink">{{ link.label }}</a>
         }@if(link.id){

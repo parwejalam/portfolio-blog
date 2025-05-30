@@ -1,3 +1,17 @@
-<h1>{{ post?.title }}</h1>
+<!-- <h1>{{ post?.title }}</h1>
 <p>{{ post?.date }}</p>
-<div [innerHTML]="safeContent"></div>
+<div [innerHTML]="safeContent"></div> -->
+
+<div class="card text-bg-secondary my-5 mx-auto " style="max-width: 90%;" data-aos="flip-left"
+    data-aos-easing="ease-out-cubic">
+    <div class="card-header d-flex align-items-center" data-aos="fade-down-left" data-aos-duration="5000"  data-aos-anchor-placement="top-bottom">
+        <button class="btn col-1" (click)="goBack()" ><i class="bi bi-arrow-left-circle fs-4" ></i></button>
+        <h1 class="col-10">{{ post?.title }}</h1>
+    </div>
+    <div class="card-body mx-auto" style="max-width: 90%;" data-aos="fade-up-right" data-aos-duration="6000"  data-aos-anchor-placement="top-bottom">
+        <!-- <h5 class="card-title">Secondary card title</h5> -->
+        <p class="card-text">{{ post?.date }}</p>
+        <div [innerHTML]="safeContent"></div>
+
+    </div>
+</div>

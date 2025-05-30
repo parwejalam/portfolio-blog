@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import * as aos from 'aos';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,6 +10,12 @@ import { RouterModule } from '@angular/router';
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
+
+  ngOnInit(): void {
+    aos.init({
+      duration: 2000, 
+    });
+  }
 
 
     navLinks = [

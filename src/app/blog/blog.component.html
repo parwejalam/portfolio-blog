@@ -8,12 +8,12 @@
   </div>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      @for(link of navLinks; track link.routerLink){
+      @for(link of navLinks; track $index){
       <li class="nav-item">
         @if(link.routerLink){
         <a class="nav-link" [routerLink]="link.routerLink">{{ link.label }}</a>
-        }@if(link.id){
-        <a class="nav-link" [href]="link.id">{{ link.label }}</a>
+        }@if(link.function){
+        <a class="nav-link" (click)="handleClick(link.label)">{{ link.label }}</a>
         }@if(link.icon){
         <i [class]="link.icon"></i>
         }
@@ -22,11 +22,141 @@
     </ul>
   </div>
 </nav>
-<!-- 
-@for(post of posts; track post.slug) {
+
+
+
+@switch (blogContent) {
+
+@case('csharp'){
 <div>
-  <h2>{{ post.title }}</h2>
-  <p>{{ post.date }}</p>
-  <a [routerLink]="['/blog', post.slug]">Read more</a>
+  @if(CSharpPosts && CSharpPosts.length > 0) {
+  @for(post of CSharpPosts ; let i = $index; track $index) {
+  <div class="list-group w-50 my-2 mx-auto list-group-item-light"
+    [attr.data-aos]="i % 2 === 1 ? 'fade-down-right' : 'fade-down-left'" data-aos-anchor-placement="top-bottom">
+    <a [routerLink]="['/blog', post.slug]" class="list-group-item list-group-item-action active" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ post.title }}</h5>
+        <small>{{ post.date }}</small>
+      </div>
+      <a [routerLink]="['/blog', post.slug]">
+        <small>
+          Read more
+        </small>
+      </a>
+    </a>
+  </div>
+  }
+  }@else {
+  <div class="alert alert-warning w-50 mx-auto mt-5" role="alert">
+    <p>No posts available in this category.</p>
+  </div>
+  }
+
 </div>
-} -->
+}
+@case('angular'){
+<div>
+  @if(AngularPosts && AngularPosts.length > 0) {
+  @for(post of AngularPosts ; let i = $index; track $index) {
+  <div class="list-group w-50 my-2 mx-auto list-group-item-light"
+    [attr.data-aos]="i % 2 === 1 ? 'fade-down-right' : 'fade-down-left'" data-aos-anchor-placement="top-bottom">
+    <a [routerLink]="['/blog', post.slug]" class="list-group-item list-group-item-action active" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ post.title }}</h5>
+        <small>{{ post.date }}</small>
+      </div>
+      <a [routerLink]="['/blog', post.slug]">
+        <small>
+          Read more
+        </small>
+      </a>
+    </a>
+  </div>
+  }
+  }@else {
+  <div class="alert alert-warning w-50 mx-auto" role="alert">
+    <p>No posts available in this category.</p> 
+  </div>
+  }
+</div>
+
+}
+@case('elasticsearch'){
+<div>
+  @if(elasticSearchPosts && elasticSearchPosts.length > 0) {
+  @for(post of elasticSearchPosts; let i = $index; track $index) {
+  <div class="list-group w-50 my-2 mx-auto list-group-item-light"
+    [attr.data-aos]="i % 2 === 1 ? 'fade-down-right' : 'fade-down-left'" data-aos-anchor-placement="top-bottom">
+    <a [routerLink]="['/blog', post.slug]" class="list-group-item list-group-item-action active" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ post.title }}</h5>
+        <small>{{ post.date }}</small>
+      </div>
+      <a [routerLink]="['/blog', post.slug]">
+        <small>
+          Read more
+        </small>
+      </a>
+    </a>
+  </div>
+  }
+  }@else {
+  <div class="alert alert-warning w-50 mx-auto mt-2" role="alert">
+    No posts available in this category.
+  </div>
+  }
+</div>
+}
+@case('others'){
+<div>
+  @if(OtherPosts && OtherPosts.length > 0) {
+  @for(post of OtherPosts ; let i = $index; track $index) {
+  <div class="list-group w-50 my-2 mx-auto list-group-item-light"
+    [attr.data-aos]="i % 2 === 1 ? 'fade-down-right' : 'fade-down-left'" data-aos-anchor-placement="top-bottom">
+    <a [routerLink]="['/blog', post.slug]" class="list-group-item list-group-item-action active" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ post.title }}</h5>
+        <small>{{ post.date }}</small>
+      </div>
+      <a [routerLink]="['/blog', post.slug]">
+        <small>
+          Read more
+        </small>
+      </a>
+    </a>
+  </div>
+  }
+  }@else {
+  <div class="alert alert-warning w-50 mx-auto mt-2" role="alert">
+    <p>No posts available in this category.</p>
+  </div>
+  }
+</div>
+}
+@default {
+<div>
+  @if(posts && posts.length > 0) {
+  @for(post of posts; let i = $index; track $index) {
+  <div class="list-group w-50 my-2 mx-auto list-group-item-light"
+    [attr.data-aos]="i % 2 === 1 ? 'fade-down-right' : 'fade-down-left'" data-aos-anchor-placement="top-bottom">
+    <a [routerLink]="['/blog', post.slug]" class="list-group-item list-group-item-action active" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ post.title }}</h5>
+        <small>{{ post.date }}</small>
+      </div>
+      <a [routerLink]="['/blog', post.slug]">
+        <small>
+          Read more
+        </small>
+      </a>
+    </a>
+  </div>
+  }
+  }@else {
+  <div class="alert alert-warning w-50 mx-auto mt-2" role="alert">
+   <p>No posts available.</p> 
+  </div>
+  }
+</div>
+}
+}

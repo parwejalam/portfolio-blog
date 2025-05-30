@@ -20,6 +20,7 @@
     "@angular/router": "^18.2.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.6",
+    "buffer": "^6.0.3",
     "gray-matter": "^4.0.3",
     "marked": "^15.0.12",
     "rxjs": "~7.8.0",

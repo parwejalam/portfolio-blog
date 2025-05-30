@@ -1,4 +1,4 @@
- ---
+---
 layout: post
 title:  "String manipulation in C#"
 date:   2016-09-24
@@ -10,6 +10,7 @@ icon: icon-csharp
 ---
 
 ## Preface
+
 Some code help to search, replace, remove string.
 
 Strings are *immutable* in managed code, it is not possible (without using unsafe code) to modify the value of a string object after it has been

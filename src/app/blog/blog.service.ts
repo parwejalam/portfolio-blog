@@ -6,6 +6,7 @@ import { map, forkJoin, Observable } from 'rxjs';
 
 export interface BlogPost {
     title: string;
+    categories: string[];
     slug: string;
     date: string;
     tags: string[];
@@ -52,8 +53,12 @@ export class BlogService {
             this.http.get(`assets/posts/${filename}`, { responseType: 'text' }).pipe(
                 map(raw => {
                     const { data, content } = matter(raw);
+                    // Ensure required fields are present and fallback if missing
                     return {
-                        ...data,
+                        title: data['title'] ?? 'Untitled',
+                        slug: data['slug'] ?? filename.replace(/\.(md|markdown)$/, ''),
+                        date: data['date'] ?? '',
+                        tags: Array.isArray(data['tags']) ? data['tags'] : [],
                         content: marked(content)
                     } as BlogPost;
                 })
@@ -73,9 +78,9 @@ export class BlogService {
         return this.getAllPosts().pipe(
             map(posts =>
                 posts.filter(p =>
-                    p.title.toLowerCase().includes(query.toLowerCase()) ||
-                    p.content.toLowerCase().includes(query.toLowerCase()) ||
-                    p.tags?.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+                    (p.title?.toLowerCase() ?? '').includes(query.toLowerCase()) ||
+                    (p.content?.toLowerCase() ?? '').includes(query.toLowerCase()) ||
+                    (p.tags ?? []).some(tag => tag.toLowerCase().includes(query.toLowerCase()))
                 )
             )
         );

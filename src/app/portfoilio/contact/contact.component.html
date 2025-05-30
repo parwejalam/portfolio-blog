@@ -1,39 +1,59 @@
-<div id="contact">
-<pre>
-    <p>contact works!</p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos laborum fugit sint ipsam nobis amet iure ipsa unde
-    aspernatur dolore aperiam, modi quam quia dolores consequatur aliquam veritatis impedit voluptate saepe eaque!
-    Perferendis aut asperiores amet nobis, eveniet sed odio ea saepe accusamus, illum neque reiciendis quibusdam
-    blanditiis laudantium. Tenetur ab omnis ullam distinctio, rem assumenda veniam placeat impedit illum libero dolore.
-    Reiciendis sint nostrum consequatur, et esse, odit ea corporis, sapiente id doloribus ratione quisquam odio
-    voluptatum facilis. Dolorum, velit architecto omnis doloribus eos odit ipsa necessitatibus quae cumque quis, eius
-    dolorem non. Hic quia voluptatibus iure reprehenderit autem ullam sint explicabo officiis vero, soluta eaque vel
-    necessitatibus voluptatem beatae quae eum impedit molestias dolor ea adipisci quos fuga? Fugiat aperiam magnam
-    pariatur, temporibus iste omnis voluptates est quae. Eveniet eum laboriosam laborum tempora ducimus nam natus nihil
-    beatae voluptates totam? Mollitia ea asperiores dicta quia minus nihil veniam maxime, cumque sed expedita quidem
-    incidunt, at quo qui numquam officia, perspiciatis dignissimos! Commodi voluptates alias quod hic dolor optio
-    aspernatur ad molestiae esse necessitatibus soluta incidunt eveniet mollitia inventore saepe velit reprehenderit
-    possimus, sequi quidem cum quibusdam fugiat dicta porro? Minima blanditiis at, officiis corrupti dicta ab iusto
-    perferendis eligendi libero, tenetur dignissimos quo quas! Consectetur omnis laborum commodi autem rerum, magni sed
-    adipisci at voluptate. Consequuntur temporibus dolorum culpa magnam quis explicabo, in porro voluptate optio ipsam.
-    Alias ducimus impedit quidem qui quae odit? Ut inventore ab placeat corporis doloremque illo harum vel, asperiores
-    ducimus quam! Odit saepe officiis dicta expedita eaque similique totam, vel quod quo ab quae molestias! Temporibus
-    omnis dolorem quasi doloribus at officia voluptas et, neque nobis eaque perferendis fuga quaerat ad repellat dolore,
-    animi vitae vel aspernatur, harum reprehenderit. Sed praesentium mollitia vel debitis enim quod. Tenetur sequi
-    commodi distinctio fuga! Blanditiis, repudiandae tempore eum vitae totam facilis eligendi, dicta reiciendis placeat
-    praesentium at aperiam aliquam tempora in culpa impedit. Aliquid perspiciatis voluptates nulla atque, provident
-    necessitatibus iusto, minima aliquam eos quisquam quod et voluptate hic at temporibus eveniet accusantium
-    cupiditate. Laborum assumenda quidem molestiae est debitis minus alias voluptatibus impedit inventore nam aliquid
-    distinctio velit ex, numquam corporis repudiandae ipsa consequatur hic libero et! Blanditiis, eveniet distinctio
-    voluptatem laboriosam beatae incidunt quae quisquam enim, necessitatibus suscipit adipisci ipsam, quo aut expedita.
-    Fugit mollitia dicta nemo? Rem facilis asperiores, laudantium numquam magnam quae architecto est ea ipsum
-    consequatur incidunt minima iure fugit corrupti consequuntur expedita, reprehenderit unde dolore qui blanditiis
-    perferendis, tempore omnis. Voluptatem sit pariatur accusantium quibusdam. Earum accusantium pariatur eveniet,
-    voluptate voluptas ratione inventore incidunt similique, reiciendis molestiae dolorum repudiandae sed, aspernatur
-    ipsa esse suscipit. Quidem veritatis similique eos laudantium, iste voluptatibus dolore asperiores soluta, modi
-    facilis quisquam hic consequatur ipsa labore facere sapiente reprehenderit ex commodi odit? Consequatur, dolor esse
-    deleniti, nulla quas fugiat laboriosam vel at quod blanditiis corrupti officia recusandae soluta dolorem explicabo
-    aspernatur illo quibusdam consectetur non quo iste placeat voluptatum architecto hic. Nobis numquam delectus ducimus
-    laudantium fugit, quibusdam, beatae suscipit quaerat placeat exercitationem quasi maiores!
-    </pre>
+<div id="contact" class="pt-5" style="background: #000; color: #fff; min-height: 60vh;">
+    <div class="container">
+        <div class="row align-items-start">
+            <!-- Left Side: Info & Social -->
+            <div class="col-md-6 mb-4">
+                <h1 class="display-4 mb-4" style="font-weight: 300;">Get in touch<br>with me!</h1>
+                <div class="mb-3">
+                    <i class="bi bi-envelope-paper-fill me-2"></i>
+                    <span style="font-size: 1.2rem; color: #bdbdbd;">parwejalamgt&#64;gmail.com</span>
+                </div>
+                <div class="mb-4" data-aos="fade-right" data-aos-easing="ease-in-sine">
+                    @for(link of icons; let i = $index; track $index) {
+                    <a [href]="link.href" class="me-2"><i class="{{link.icon}}"
+                            style="font-size:2.2rem; color:#4285f4;"></i></a>
+                    }
+                </div>
+                <a href="#" class="btn btn-danger btn-lg px-4" style="font-size:1.7rem;">Download CV</a>
+            </div>
+            <!-- Right Side: Form -->
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control form-control-lg" placeholder="Full Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control form-control-lg" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control form-control-lg" rows="5"
+                            placeholder="Type your message in minimum 20 words!" required></textarea>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg"
+                            style="background:#2856a7; border:none;">SEND</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="mt-5 pt-4 pb-2" style="background: #aab2bd; color: #444;">
+        <div class="container text-center">
+            <h2 style="font-weight: 300;">Parwej Alam</h2>
+            <div class="mb-2">
+                <i class="bi bi-envelope-paper-fill me-2"></i>
+                <span>parwejalamgt&#64;gmail.com</span>
+            </div>
+            <div class="mb-2" data-aos="fade-down" data-aos-easing="ease-in-sine">
+                @for(link of icons; let i = $index; track $index) {
+                <a [href]="link.href" class="me-2"><i class="{{link.icon}}"
+                        style="font-size:2.2rem; color:#4285f4;"></i></a>
+                }
+            </div>
+            <div class="mb-1" style="font-size:1.1rem;">
+                &copy; {{year}} copyright all right reserved
+            </div>
+        </div>
+    </div>
 </div>

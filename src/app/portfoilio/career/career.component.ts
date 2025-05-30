@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as aos from 'aos';
 
 @Component({
   selector: 'app-career',
@@ -8,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './career.component.scss'
 })
 export class CareerComponent {
+
+  
+  ngOnInit(): void {
+    // You can initialize AOS here if needed
+    aos.init({
+      duration: 3000,
+    });
+  }
 
 }
